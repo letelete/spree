@@ -66,6 +66,8 @@ export default {
       read_all_reviews: 'Read all reviews',
       size_guide: 'Size guide',
       color: 'Color',
+      description: 'Description',
+      read_reviews: 'Read reviews',
     },
     reset_password: {
       reset_password: 'Reset password',
