@@ -19,6 +19,15 @@ export default {
         shipping: 'Shipping',
         select_shipping_method: 'Select shipping method',
       },
+      thank_you: {
+        order_no: 'Order No.',
+        successful_placed_order: 'You have successfully placed the order. You can check status of your order by using our delivery status feature. You will receive an order confirmation e-mail with details of your order and a link to track its progress.',
+        allow_order_notifications: 'Allow order notifications',
+        info_after_order: 'You can log to your account using e-mail and password defined earlier. On your account you can edit your profile data, check history of transactions, edit subscription to newsletter.',
+        feedback: 'Your feedback is important to us. Let us know what we could improve.',
+        send_my_feedback: 'Send my feedback',
+        go_back_to_shop: 'Go back to shop',
+      },
     },
     my_account: {
       my_profile: {
@@ -59,6 +68,14 @@ export default {
       size_guide: 'Size guide',
       color: 'Color',
     },
+    reset_password: {
+      reset_password: 'Reset password',
+      password: 'Password',
+      repeat_password: 'Repeat password',
+      save_password: 'Save password',
+      password_changed: 'Password changed',
+      back_to_home: 'Back to home',
+    }
   },
   components: {
     checkout: {
@@ -152,16 +169,6 @@ export default {
   'Log into your account': 'Log into your account',
   'or fill the details below': 'or fill the details below',
   'Enjoy your free account': 'Enjoy these perks with your free account!',
-  'Order No.': 'Order No.',
-  'Successful placed order':
-    'You have successfully placed the order. You can check status of your order by using our delivery status feature. You will receive an order confirmation e-mail with details of your order and a link to track its progress.',
-  'Info after order':
-    'You can log to your account using e-mail and password defined earlier. On your account you can edit your profile data, check history of transactions, edit subscription to newsletter.',
-  'Allow order notifications': 'Allow order notifications',
-  Feedback:
-    'Your feedback is important to us. Let us know what we could improve.',
-  'Send my feedback': 'Send my feedback',
-  'Go back to shop': 'Go back to shop',
   'Set up newsletter':
     'Set up your newsletter and we will send you information about new products and trends from the sections you selected every week.',
   'Sections that interest you': 'Sections that interest you',
@@ -202,7 +209,6 @@ export default {
   Total: 'Total',
   'Reset Password': 'Reset Password',
   'Save Password': 'Save Password',
-  'Back to home': 'Back to home',
   'Forgot Password': 'If you can’t remember your password, you can reset it.',
   'Thank You Inbox':
     'If the message is not arriving in your inbox, try another email address you might’ve used to register.',
