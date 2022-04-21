@@ -1,5 +1,4 @@
 /* eslint-disable  */
-
 export default {
   pages: {
     checkout: {
@@ -93,10 +92,48 @@ export default {
       },
     },
     app_footer: {
-      about_us: 'About us',
-      departments: 'Departments',
-      help: 'Help',
-      payment_and_delivery: 'Payment & Delivery',
+      about_us: {
+        title: 'About us',
+        items: [
+          'Who we are', 
+          'Quality in the details', 
+          'Customer Reviews',
+        ],
+      },
+      departments: {
+        title: 'Departments',
+        items: [
+          'Women fashion',
+          'Men fashion',
+          'Kidswear',
+          'Home',
+        ],
+      },
+      help: {
+        title: 'Help',
+        items: [
+          'Customer service',
+          'Size guide',
+          'Contact us',
+        ],
+      },
+      payment_and_delivery: {
+        title: 'Payment & Delivery',
+        items: [
+          'Purchase terms',
+          'Guarantee',
+        ],
+      },
+      social: {
+        title: 'Social',
+        items: [ 
+          'facebook', 
+          'pinterest', 
+          'google', 
+          'twitter',
+          'youtube',
+        ],
+      },
     },
     app_header: {
       search_for_items: 'Search for items',
