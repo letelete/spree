@@ -13,6 +13,13 @@ export default {
         terms_and_conditions: 'Terms and conditions',
         go_back: 'Go back',
         make_an_order: 'Make an order',
+        table_headers: [
+          { description: "Description" }, 
+          { size: 'Size' }, 
+          { color: 'Color'},
+          { quantity: 'Quantity'},
+          { amount: 'Amount'},
+        ],
       },
       shipping: {
         shipping: 'Shipping',
