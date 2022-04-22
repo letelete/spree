@@ -38,7 +38,7 @@
                 ({{ totalReviews }})
               </a>
             </div>
-            <SfButton class="sf-button--text">{{ $t('Read all reviews') }}</SfButton>
+            <SfButton class="sf-button--text">{{ $t('pages.product.read_all_reviews') }}</SfButton>
           </div>
         </div>
         <div>
@@ -60,10 +60,10 @@
             </SfSelectOption>
           </SfSelect>
           <SfButton v-if="options.size" class="sf-button--text desktop-only product__guide">
-            {{ $t('Size guide') }}
+            {{ $t('pages.product.size_guide') }}
           </SfButton>
           <div v-if="options.color && options.color.length > 1" class="product__colors desktop-only">
-            <p class="product__color-label">{{ $t('Color') }}:</p>
+            <p class="product__color-label">{{ $t('pages.product.color') }}:</p>
             <SfColor
               v-for="(color, i) in options.color"
               :key="i"
@@ -84,10 +84,10 @@
 
         <LazyHydrate when-idle>
           <SfTabs :open-tab="1" class="product__tabs">
-            <SfTab title="Description" style="padding: 0; margin: 0">
+            <SfTab :title="$t('pages.product.description')" style="padding: 0; margin: 0">
               <div v-html="productGetters.getDescription(product)" class="product__description" ></div>
             </SfTab>
-            <SfTab title="Read reviews">
+            <SfTab :title="$t('pages.product.read_reviews')">
               <SfReview
                 v-for="review in reviews"
                 :key="reviewGetters.getReviewId(review)"
@@ -129,7 +129,7 @@
       <RelatedProducts
         :products="relatedProducts"
         :loading="relatedLoading"
-        title="Match it with"
+        :title="$t('pages.product.match_it_with')"
       />
     </LazyHydrate>
 
@@ -258,13 +258,7 @@ export default {
     LazyHydrate
   },
   data() {
-    return {
-      description: 'Find stunning women cocktail and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.',
-      detailsIsActive: false,
-      brand:
-          'Brand name is the perfect pairing of quality and design. This label creates major everyday vibes with its collection of modern brooches, silver and gold jewellery, or clips it back with hair accessories in geo styles.',
-      careInstructions: 'Do not wash!'
-    };
+    return { detailsIsActive: false };
   }
 };
 </script>

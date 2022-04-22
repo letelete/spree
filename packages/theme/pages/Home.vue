@@ -35,7 +35,7 @@
       <div class="similar-products">
         <SfHeading title="Match with it" :level="2"/>
         <nuxt-link :to="localePath('/c/categories/women')" class="smartphone-only">
-          {{ $t('See all') }}
+          {{ $t('pages.home.see_all') }}
         </nuxt-link>
       </div>
     </LazyHydrate>
@@ -76,9 +76,9 @@
 
     <LazyHydrate when-visible>
       <SfCallToAction
-        title="Subscribe to Newsletters"
-        button-text="Subscribe"
-        description="Be aware of upcoming sales and events. Receive gifts and special offers!"
+        :title="$t('pages.home.cta_subscribe_title')"
+        :button-text="$t('pages.home.cta_subscribe_button_label')"
+        :description="$t('pages.home.cta_subscribe_description')"
         image="/homepage/newsletter.webp"
         class="call-to-action"
       >
@@ -88,7 +88,7 @@
             data-testid="cta-button"
             @click="toggleNewsletterModal"
           >
-            {{ $t('Subscribe') }}
+            {{ $t('pages.home.cta_subscribe_button_label') }}
           </SfButton>
         </template>
       </SfCallToAction>

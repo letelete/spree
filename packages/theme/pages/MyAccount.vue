@@ -6,34 +6,34 @@
     />
     <SfContentPages
       v-e2e="'my-account-content-pages'"
-      title="My Account"
+      :title="$t('pages.my_account.content_page_my_account')"
       :active="activePage"
       class="my-account"
       @click:change="changeActivePage"
     >
-      <SfContentCategory title="Personal Details">
-        <SfContentPage title="My profile">
+      <SfContentCategory :title="$t('pages.my_account.personal_details')">
+        <SfContentPage :title="$t('pages.my_account.my_profile_title')">
           <MyProfile />
         </SfContentPage>
 
-        <SfContentPage title="Saved addresses">
+        <SfContentPage :title="$t('pages.my_account.saved_addresses_title')">
           <SavedAddressesDetails />
         </SfContentPage>
       </SfContentCategory>
 
-      <SfContentCategory title="Order details">
-        <SfContentPage title="Order history">
+      <SfContentCategory :title="$t('pages.my_account.order_details_title')">
+        <SfContentPage :title="$t('pages.my_account.order_history_title')">
           <OrderHistory />
         </SfContentPage>
       </SfContentCategory>
 
-      <SfContentPage title="Log out" />
+      <SfContentPage :title="$t('pages.my_account.log_out_title')" />
     </SfContentPages>
   </div>
 </template>
 <script>
 import { SfBreadcrumbs, SfContentPages } from '@storefront-ui/vue';
-import { computed, onBeforeUnmount, useRoute, useRouter } from '@nuxtjs/composition-api';
+import { computed, onBeforeUnmount, onMounted, useRoute, useRouter } from '@nuxtjs/composition-api';
 import { useUser } from '@vue-storefront/spree';
 import MyProfile from './MyAccount/MyProfile';
 import SavedAddressesDetails from './MyAccount/SavedAddressesDetails';
@@ -60,16 +60,16 @@ export default {
   setup(props, context) {
     const route = useRoute();
     const router = useRouter();
-
     const { logout } = useUser();
     const isMobile = computed(() => mapMobileObserver().isMobile.get());
+
     const activePage = computed(() => {
       const { pageName } = route.value.params;
 
       if (pageName) {
         return (pageName.charAt(0).toUpperCase() + pageName.slice(1)).replace('-', ' ');
       } else if (!isMobile.value) {
-        return 'My profile';
+        return context.root.$i18n.t('pages.my_account.my_profile_title');
       } else {
         return '';
       }
