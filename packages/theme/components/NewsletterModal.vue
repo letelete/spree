@@ -35,7 +35,7 @@
           :level="3"
         />
         <SfScrollable maxContentHeight="3.75rem" :class="{ 'is-open': !isHidden }">
-          <i18n tag="p" class="modal__content" path="subscribeToNewsletterModalContent">
+          <i18n tag="p" class="modal__content" path="components.newsletter_modal.subscribe_to_newsletter_modal_content">
             <SfLink link="https://www.vuestorefront.io/privacy-policy">{{ $t('components.newsletter_modal.privacy_policy') }}</SfLink>
           </i18n>
           <template #view-all>

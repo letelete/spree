@@ -76,9 +76,9 @@
 
     <LazyHydrate when-visible>
       <SfCallToAction
-        title="Subscribe to Newsletters"
-        button-text="Subscribe"
-        description="Be aware of upcoming sales and events. Receive gifts and special offers!"
+        :title="$t('pages.home.cta_subscribe_title')"
+        :button-text="$t('pages.home.cta_subscribe_button_label')"
+        :description="$t('pages.home.cta_subscribe_description')"
         image="/homepage/newsletter.webp"
         class="call-to-action"
       >
@@ -88,7 +88,7 @@
             data-testid="cta-button"
             @click="toggleNewsletterModal"
           >
-            {{ $t('pages.home.subscribe') }}
+            {{ $t('pages.home.cta_subscribe_button_label') }}
           </SfButton>
         </template>
       </SfCallToAction>

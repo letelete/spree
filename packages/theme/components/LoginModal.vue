@@ -105,7 +105,7 @@
         </ValidationObserver>
       </div>
       <div v-else-if="currentScreen === SCREEN_THANK_YOU" class="thank-you">
-        <i18n tag="p" class="thank-you__paragraph" path="forgotPasswordConfirmation">
+        <i18n tag="p" class="thank-you__paragraph" path="components.login_modal.forgot_password_confirmation">
           <span class="thank-you__paragraph--bold">{{ userEmail }}</span>
         </i18n>
         <p class="thank-you__paragraph">{{ $t('components.login_modal.thank_you_inbox') }}</p>

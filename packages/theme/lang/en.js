@@ -36,6 +36,13 @@ export default {
       },
     },
     my_account: {
+      content_page_my_account: 'My Account',
+      personal_details: 'Personal details',
+      my_profile_title: 'My profile',
+      saved_addresses_title: 'Saved addresses',
+      order_details_title: 'Order details',
+      order_history_title: 'Order history',
+      log_out_title: 'Log out',
       my_profile: {
         feel_free_to_edit: 'Feel free to edit any of your details below so your account is always up to date',
         use_your_personal_data: 'At Brand name, we attach great importance to privacy issues and are committed to protecting the personal data of our users. Learn more about how we care and use your personal data in the',
@@ -67,7 +74,9 @@ export default {
     },
     home: {
       see_all: 'See all',
-      subscribe: 'Subscribe',
+      cta_subscribe_title: 'Subscribe',
+      cta_subscribe_button_label: 'Subscribe to newsletter',
+      cta_subscribe_description: 'Be aware of upcoming sales and events. Receive gifts and special offers!',
     },
     product: {
       read_all_reviews: 'Read all reviews',
@@ -75,6 +84,7 @@ export default {
       color: 'Color',
       description: 'Description',
       read_reviews: 'Read reviews',
+      match_it_with: 'Match it with',
     },
     reset_password: {
       reset_password: 'Reset password',
@@ -146,11 +156,31 @@ export default {
     },
     app_header: {
       search_for_items: 'Search for items',
+      aria_label_open_account_button: 'Open account button',
+      aria_label_toggle_wishlist_sidebar_button: 'Toggle wishlist sidebar',
+      aria_label_toggle_cart_sidebar_button: 'Toggle cart sidebar',
+      aria_label_search_bar: 'Search',
+      aria_label_close_search_button: 'Close search',
+      aria_label_open_search_button: 'Open search',
+      alt_header_logo: 'Vue Storefront Next',
+    },
+    bottom_navigation: {
+      label_home_icon: 'Home',
+      label_menu_icon: 'Menu',
+      label_wishlist_icon: 'Wishlist',
+      label_account_icon: 'Account',
+      label_basket_icon: 'Basket',
+      aria_label_add_to_cart: 'Aria label add to cart',
     },
     cart_sidebar: {
       product_already_in_your_wishlist: 'Product already in your wishlist',
       go_to_checkout: 'Go to checkout',
       go_back_shopping: 'Go back shopping',
+      my_cart: 'My Cart',
+      total_items: 'Total items',
+      your_cart_is_empty_title: 'Your cart is empty',
+      your_cart_is_empty_description: 'Looks like you haven’t added any items to the bag yet. Start shopping to fill it in.',
+      subtotal_price: 'Subtotal price',
     },
     category_page_header: {
       filters: 'Filters',
@@ -165,6 +195,10 @@ export default {
     filters_sidebar: {
       done: 'Done',
       clear_all: 'Clear all',
+      filters: 'Filters',
+    },
+    header_navigation: {
+      all: 'All',
     },
     locale_selector: {
       change_locale: 'Change locale',
@@ -175,6 +209,7 @@ export default {
       forgotten_password: 'Forgotten password',
       no_account: `Don't have an account yet?`,
       register_today: 'Register today',
+      forgot_password_confirmation: 'Thanks! If there is an account registered with the {0} email, you will find message with a password reset link in your inbox.',
       forgot_password: 'If you can’t remember your password, you can reset it.',
       forgot_password_modal_email: 'Email you are using to sign in:',
       reset_password: 'Reset password',
@@ -185,6 +220,7 @@ export default {
     },
     newsletter_modal: {
       subscribe_to_newsletter: 'Subscribe to newsletter',
+      subscribe_to_newsletter_modal_content: 'After signing up for the newsletter, you will receive special offers and messages from VSF via email. We will not sell or distribute your email to any third party at any time. Please see our {0}.',
       email_address: 'Email address',
       i_confirm_subscription: 'I confirm subscription',
       you_can_unsubscribe_at_any_time: 'You can unsubscribe at any time',
