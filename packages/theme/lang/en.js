@@ -47,9 +47,9 @@ export default {
         table_headers: [
           { description: 'Description' },
           { size: 'Size' },
-          { color: 'Color'},
-          { quantity: 'Quantity'},
-          { amount: 'Amount'}
+          { color: 'Color' },
+          { quantity: 'Quantity' },
+          { amount: 'Amount' }
         ]
       },
       shipping: {
