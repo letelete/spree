@@ -3,7 +3,7 @@
     <SfCallToAction
       v-e2e="'thank-you-banner'"
       class="banner"
-      title="Thank you for your order!"
+      :title="$t('pages.checkout.thank_you.thank_you_banner_title')"
       :image="{
         mobile: '/thankyou/bannerM.png',
         desktop: '/thankyou/bannerD.png',
@@ -19,7 +19,7 @@
     <section class="section">
       <div class="order">
         <SfHeading
-          title="Your Purchase"
+          :title="$t('pages.checkout.thank_you.your_purchase_title')"
           class="order__heading heading sf-heading--left"
           :level="3"
         />
@@ -30,7 +30,7 @@
           <SfHeading
             :level="6"
             class="heading sf-heading--left sf-heading--no-underline"
-            title="Primary contacts for any questions"
+            :title="$t('pages.checkout.thank_you.questions_contacts_title')"
           ></SfHeading>
           <div class="contact">
             <p class="contact__name">{{ companyDetails.name }}</p>
@@ -46,7 +46,7 @@
       <div class="additional-info">
         <div>
           <SfHeading
-            title="Your Account"
+            :title="$t('pages.checkout.thank_you.your_account_title')"
             class="heading sf-heading--left"
             :level="3"
           />
@@ -56,7 +56,7 @@
         </div>
         <div>
           <SfHeading
-            title="What can we improve"
+            :title="$t('pages.checkout.thank_you.what_can_we_improve')"
             class="heading sf-heading--left"
             :level="3"
           />

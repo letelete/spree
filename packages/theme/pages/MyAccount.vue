@@ -6,34 +6,34 @@
     />
     <SfContentPages
       v-e2e="'my-account-content-pages'"
-      :title="$t('pages.my_account.content_page_my_account')"
+      :title="$t('pages.my_account.content_page_title_my_account')"
       :active="activePage"
       class="my-account"
       @click:change="changeActivePage"
     >
-      <SfContentCategory :title="$t('pages.my_account.personal_details')">
-        <SfContentPage :title="$t('pages.my_account.my_profile_title')">
+      <SfContentCategory :title="$t('pages.my_account.content_category_title_personal_details')">
+        <SfContentPage :title="$t('pages.my_account.content_page_title_my_profile')">
           <MyProfile />
         </SfContentPage>
 
-        <SfContentPage :title="$t('pages.my_account.saved_addresses_title')">
+        <SfContentPage :title="$t('pages.my_account.content_page_title_saved_addresses')">
           <SavedAddressesDetails />
         </SfContentPage>
       </SfContentCategory>
 
-      <SfContentCategory :title="$t('pages.my_account.order_details_title')">
-        <SfContentPage :title="$t('pages.my_account.order_history_title')">
+      <SfContentCategory :title="$t('pages.my_account.content_category_title_order_details')">
+        <SfContentPage :title="$t('pages.my_account.content_page_title_order_history')">
           <OrderHistory />
         </SfContentPage>
       </SfContentCategory>
 
-      <SfContentPage :title="$t('pages.my_account.log_out_title')" />
+      <SfContentPage :title="$t('pages.my_account.content_page_title_log_out')" />
     </SfContentPages>
   </div>
 </template>
 <script>
 import { SfBreadcrumbs, SfContentPages } from '@storefront-ui/vue';
-import { computed, onBeforeUnmount, onMounted, useRoute, useRouter } from '@nuxtjs/composition-api';
+import { computed, onBeforeUnmount, useRoute, useRouter } from '@nuxtjs/composition-api';
 import { useUser } from '@vue-storefront/spree';
 import MyProfile from './MyAccount/MyProfile';
 import SavedAddressesDetails from './MyAccount/SavedAddressesDetails';
@@ -69,7 +69,7 @@ export default {
       if (pageName) {
         return (pageName.charAt(0).toUpperCase() + pageName.slice(1)).replace('-', ' ');
       } else if (!isMobile.value) {
-        return context.root.$i18n.t('pages.my_account.my_profile_title');
+        return context.root.$i18n.t('pages.my_account.content_page_title_my_profile');
       } else {
         return '';
       }

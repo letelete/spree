@@ -70,6 +70,7 @@ import { useForgotPassword, forgotPasswordGetters } from '@vue-storefront/spree'
 import { ValidationProvider, ValidationObserver, extend } from 'vee-validate';
 import { required } from 'vee-validate/dist/rules';
 
+// TODO: change validation msgs
 extend('required', {
   ...required,
   message: 'This field is required'

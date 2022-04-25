@@ -73,7 +73,7 @@
           </div>
         </div>
         <div v-else key="no-results" class="before-results">
-          <SfImage src="/error/error.svg" class="before-results__picture" alt="error" loading="lazy"/>
+          <SfImage src="/error/error.svg" class="before-results__picture" :alt="$t('components.search_results.alt_error')" loading="lazy"/>
           <template v-if="term">
             <p class="before-results__paragraph">{{ $t('components.search_results.we_havent_found_any_results_for_given_phrase') }}</p>
           </template>

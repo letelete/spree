@@ -38,7 +38,7 @@
                 ({{ totalReviews }})
               </a>
             </div>
-            <SfButton class="sf-button--text">{{ $t('pages.product.read_all_reviews') }}</SfButton>
+            <SfButton class="sf-button--text">{{ $t('pages.product.button_read_all_reviews_label') }}</SfButton>
           </div>
         </div>
         <div>
@@ -47,7 +47,7 @@
             v-if="options.size"
             :value="configuration.size"
             @input="size => updateFilter({ size })"
-            label="Size"
+            :label="$t('pages.product.size_select_label')"
             class="sf-select--underlined product__select-size"
             :required="true"
           >
@@ -60,10 +60,10 @@
             </SfSelectOption>
           </SfSelect>
           <SfButton v-if="options.size" class="sf-button--text desktop-only product__guide">
-            {{ $t('pages.product.size_guide') }}
+            {{ $t('pages.product.button_size_guide_label') }}
           </SfButton>
           <div v-if="options.color && options.color.length > 1" class="product__colors desktop-only">
-            <p class="product__color-label">{{ $t('pages.product.color') }}:</p>
+            <p class="product__color-label">{{ $t('pages.product.color_label') }}:</p>
             <SfColor
               v-for="(color, i) in options.color"
               :key="i"
@@ -84,10 +84,10 @@
 
         <LazyHydrate when-idle>
           <SfTabs :open-tab="1" class="product__tabs">
-            <SfTab :title="$t('pages.product.description')" style="padding: 0; margin: 0">
+            <SfTab :title="$t('pages.product.tab_title_description')" style="padding: 0; margin: 0">
               <div v-html="productGetters.getDescription(product)" class="product__description" ></div>
             </SfTab>
-            <SfTab :title="$t('pages.product.read_reviews')">
+            <SfTab :title="$t('pages.product.tab_title_read_reviews')">
               <SfReview
                 v-for="review in reviews"
                 :key="reviewGetters.getReviewId(review)"
@@ -103,7 +103,7 @@
               />
             </SfTab>
             <SfTab
-              title="Properties"
+              :title="$t('pages.product.tab_title_properties')"
               class="product__tab"
             >
               <SfProperty
@@ -129,7 +129,7 @@
       <RelatedProducts
         :products="relatedProducts"
         :loading="relatedLoading"
-        :title="$t('pages.product.match_it_with')"
+        :title="$t('pages.product.related_products_title')"
       />
     </LazyHydrate>
 
