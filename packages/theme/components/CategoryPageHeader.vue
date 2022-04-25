@@ -31,7 +31,7 @@
             :value="option.id"
             class="sort-by__option"
           >
-            {{ option.value }}
+            {{ $t(`${option.value}`) }}
           </SfSelectOption
           >
         </SfSelect>

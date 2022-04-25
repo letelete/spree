@@ -13,6 +13,14 @@ export default {
       phone_number: 'Phone number'
     }
   },
+  composables: {
+    facet_getters: {
+      sort_price_ascending: 'Price ascending',
+      sort_price_descending: 'Price descending',
+      sort_updated_at_ascending: 'Updated at ascending',
+      sort_updated_at_descending: 'Updated at descending'
+    }
+  },
   pages: {
     checkout: {
       billing: {
