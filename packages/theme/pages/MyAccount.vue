@@ -7,42 +7,55 @@
     <SfContentPages
       v-e2e="'my-account-content-pages'"
       :title="$t('pages.my_account.content_page_title_my_account')"
-      :active="activePage"
+      :active="activePageTitle"
       class="my-account"
       @click:change="changeActivePage"
     >
-      <SfContentCategory :title="$t('pages.my_account.content_category_title_personal_details')">
-        <SfContentPage :title="$t('pages.my_account.content_page_title_my_profile')">
+      <SfContentCategory
+        :title="$t('pages.my_account.content_category_title_personal_details')"
+      >
+        <SfContentPage
+          :title="$t('pages.my_account.content_page_title_my_profile')"
+        >
           <MyProfile />
         </SfContentPage>
 
-        <SfContentPage :title="$t('pages.my_account.content_page_title_saved_addresses')">
+        <SfContentPage
+          :title="$t('pages.my_account.content_page_title_saved_addresses')"
+        >
           <SavedAddressesDetails />
         </SfContentPage>
       </SfContentCategory>
 
-      <SfContentCategory :title="$t('pages.my_account.content_category_title_order_details')">
-        <SfContentPage :title="$t('pages.my_account.content_page_title_order_history')">
+      <SfContentCategory
+        :title="$t('pages.my_account.content_category_title_order_details')"
+      >
+        <SfContentPage
+          :title="$t('pages.my_account.content_page_title_order_history')"
+        >
           <OrderHistory />
         </SfContentPage>
       </SfContentCategory>
 
-      <SfContentPage :title="$t('pages.my_account.content_page_title_log_out')" />
+      <SfContentPage
+        :title="$t('pages.my_account.content_page_title_log_out')"
+      />
     </SfContentPages>
   </div>
 </template>
 <script>
 import { SfBreadcrumbs, SfContentPages } from '@storefront-ui/vue';
-import { computed, onBeforeUnmount, useRoute, useRouter } from '@nuxtjs/composition-api';
+import {
+  computed,
+  useRoute,
+  useRouter,
+  useContext
+} from '@nuxtjs/composition-api';
 import { useUser } from '@vue-storefront/spree';
 import MyProfile from './MyAccount/MyProfile';
 import SavedAddressesDetails from './MyAccount/SavedAddressesDetails';
 import MyNewsletter from './MyAccount/MyNewsletter';
 import OrderHistory from './MyAccount/OrderHistory';
-import {
-  mapMobileObserver,
-  unMapMobileObserver
-} from '@storefront-ui/vue/src/utilities/mobile-observer.js';
 
 export default {
   name: 'MyAccount',
@@ -54,46 +67,50 @@ export default {
     MyNewsletter,
     OrderHistory
   },
-  middleware: [
-    'is-authenticated'
-  ],
+  middleware: ['is-authenticated'],
   setup(props, context) {
     const route = useRoute();
     const router = useRouter();
     const { logout } = useUser();
-    const isMobile = computed(() => mapMobileObserver().isMobile.get());
+    const baseContext = useContext();
 
-    const activePage = computed(() => {
-      const { pageName } = route.value.params;
-
-      if (pageName) {
-        return (pageName.charAt(0).toUpperCase() + pageName.slice(1)).replace('-', ' ');
-      } else if (!isMobile.value) {
-        return context.root.$i18n.t('pages.my_account.content_page_title_my_profile');
-      } else {
-        return '';
-      }
-    });
-
-    const changeActivePage = async (title) => {
-      if (title === 'Log out') {
-        await logout();
-        router.push(context.root.localePath({ name: 'home' }));
-        return;
-      }
-
-      const slugifiedTitle = (title || '').toLowerCase().replace(' ', '-');
-      const transformedPath = `/my-account/${slugifiedTitle}`;
-      const localeTransformedPath = context.root.localePath(transformedPath);
-
-      router.push(localeTransformedPath);
+    const handleOpenPage = async (page) => {
+      router.push(page.localizedPath);
     };
 
-    onBeforeUnmount(() => {
-      unMapMobileObserver();
+    const handleLogout = async () => {
+      await logout();
+      router.push(context.root.localePath({ name: 'home' }));
+    };
+
+    const pages = computed(() => [
+      { path: '/my-account', i18nKey: 'pages.my_account.content_page_title_my_profile', onActive: handleOpenPage},
+      { path: '/my-account/my-profile', i18nKey: 'pages.my_account.content_page_title_my_profile', onActive: handleOpenPage },
+      { path: '/my-account/saved-addresses', i18nKey: 'pages.my_account.content_page_title_saved_addresses', onActive: handleOpenPage },
+      { path: '/my-account/order-history', i18nKey: 'pages.my_account.content_page_title_order_history', onActive: handleOpenPage },
+      { path: '/my-account/log-out', i18nKey: 'pages.my_account.content_page_title_log_out', onActive: handleLogout }
+    ].map((page) => ({
+      ...page,
+      localizedPath: baseContext.localePath(page.path),
+      localizedTitle: context.root.$i18n.t(page.i18nKey)
+    })));
+
+    const findPageByLocalizedPath = (path) => pages.value.find(({ localizedPath }) => localizedPath === path);
+
+    const findPageByLocalizedTitle = (title) => pages.value.find(({ localizedTitle }) => localizedTitle === title);
+
+    const changeActivePage = async (title) => {
+      const page = findPageByLocalizedTitle(title);
+      await page.onActive(page);
+    };
+
+    const activePageTitle = computed(() => {
+      const { path } = route.value;
+      console.log(route.value);
+      return findPageByLocalizedPath(path)?.localizedTitle || '';
     });
 
-    return { changeActivePage, activePage };
+    return { changeActivePage, activePageTitle };
   },
 
   data(root) {
@@ -113,7 +130,7 @@ export default {
 };
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 #my-account {
   box-sizing: border-box;
   @include for-desktop {
@@ -127,7 +144,7 @@ export default {
       --font-weight--normal
     );
     --content-pages-sidebar-category-title-margin: var(--spacer-sm)
-    var(--spacer-sm) var(--spacer-sm) var(--spacer-base);
+      var(--spacer-sm) var(--spacer-sm) var(--spacer-base);
   }
   @include for-desktop {
     --content-pages-sidebar-category-title-margin: var(--spacer-xl) 0 0 0;
