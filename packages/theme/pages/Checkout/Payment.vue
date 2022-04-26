@@ -9,12 +9,11 @@
       <SfTableHeading class="table__row">
         <SfTableHeader class="table__header table__image">{{ $t('pages.checkout.payment.item') }}</SfTableHeader>
         <SfTableHeader
-          v-for="entry in $t('pages.checkout.payment.table_headers')"
-          :key="Object.keys(entry)[0]"
+          v-for="{ key, value } in $t('pages.checkout.payment.table_headers')"
+          :key="key"
           class="table__header"
-          :class="{ table__description: Object.keys(entry)[0] === 'description' }"
-        >
-          {{ Object.values(entry)[0] }}
+          :class="{ table__description: key === 'description' }"
+        >          {{ value }}
         </SfTableHeader>
       </SfTableHeading>
       <SfTableRow

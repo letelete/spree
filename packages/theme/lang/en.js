@@ -45,11 +45,11 @@ export default {
         go_back: 'Go back',
         make_an_order: 'Make an order',
         table_headers: [
-          { description: 'Description' },
-          { size: 'Size' },
-          { color: 'Color' },
-          { quantity: 'Quantity' },
-          { amount: 'Amount' }
+          { key: 'description', value: 'Description' },
+          { key: 'size', value: 'Size' },
+          { key: 'color', value: 'Color' },
+          { key: 'quantity', value: 'Quantity' },
+          { key: 'amount', value: 'Amount' }
         ]
       },
       shipping: {
