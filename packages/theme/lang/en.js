@@ -119,7 +119,9 @@ export default {
         manage_saved_addresses: 'Manage all the saved addresses you want (work place, home address...). This way you won"t have to enter an address manually with each order.',
         change: 'Change',
         delete: 'Delete',
-        add_new_address: 'Add new address'
+        add_new_address: 'Add new address',
+        tab_title_new_address: 'Add the address',
+        tab_title_old_address: 'Update the address'
       }
     },
     category: {

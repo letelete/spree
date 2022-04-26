@@ -119,7 +119,9 @@ export default {
         manage_saved_addresses: 'Verwalten Sie alle gewünschten gespeicherten Adressen (Arbeitsplatz, Privatadresse...). Auf diese Weise müssen Sie nicht bei jeder Bestellung manuell eine Adresse eingeben.',
         change: 'Ändern',
         delete: 'Löschen',
-        add_new_address: 'Neue Adresse hinzufügen'
+        add_new_address: 'Neue Adresse hinzufügen',
+        tab_title_new_address: 'Adresse hinzufügen',
+        tab_title_old_address: 'Adresse aktualisieren'
       }
     },
     category: {
