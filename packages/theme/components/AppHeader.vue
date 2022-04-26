@@ -59,7 +59,7 @@
         <SfSearchBar
           ref="searchBarRef"
           :placeholder="$t('components.app_header.search_for_items')"
-          aria-label="$t('components.app_header.aria_label_search_bar')"
+          :aria-label="$t('components.app_header.aria_label_search_bar')"
           class="sf-header__search"
           :value="term"
           @input="handleSearch"
