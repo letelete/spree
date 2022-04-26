@@ -309,7 +309,10 @@ export default {
       remember_me_modal_label: 'Mich erinnern',
       first_name_modal_label: 'Vorname',
       last_name_modal_label: 'Familienname, Nachname',
-      create_an_account_modal_label: 'Ich möchte ein Konto erstellen'
+      create_an_account_modal_label: 'Ich möchte ein Konto erstellen',
+      bar_title_screen_login: 'Anmelden',
+      bar_title_screen_register: 'Konto erstellen',
+      bar_title_screen_reset_password: 'Passwort zurücksetzen'
     },
     newsletter_modal: {
       subscribe_to_newsletter: 'Newsletter abonnieren',

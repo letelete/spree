@@ -224,7 +224,7 @@ export default {
     ValidationObserver,
     SfBar
   },
-  setup() {
+  setup(_root, context) {
     const SCREEN_LOGIN = 'login';
     const SCREEN_REGISTER = 'register';
     const SCREEN_THANK_YOU = 'thankYouAfterForgotten';
@@ -252,11 +252,11 @@ export default {
     const barTitle = computed(() => {
       switch (currentScreen.value) {
         case SCREEN_LOGIN:
-          return 'Sign in';
+          return context.root.$i18n.t('components.login_modal.bar_title_screen_login');
         case SCREEN_REGISTER:
-          return 'Register';
+          return context.root.$i18n.t('components.login_modal.bar_title_screen_register');
         default:
-          return 'Reset Password';
+          return context.root.$i18n.t('components.login_modal.bar_title_screen_reset_password');
       }
     });
 
