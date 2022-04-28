@@ -86,7 +86,7 @@ export default {
       }
     },
     my_account: {
-      tab_title_personal_data: 'persönliche Daten',
+      tab_title_personal_data: 'Persönliche Daten',
       tab_title_password_change: 'Passwortänderung',
       content_page_title_my_account: 'Mein Konto',
       content_category_title_personal_details: 'Persönliche Daten',
@@ -105,14 +105,30 @@ export default {
         change_password_your_account: 'Wenn Sie das Passwort für den Zugriff auf Ihr Konto ändern möchten, geben Sie die folgenden Informationen ein'
       },
       order_history: {
-        tab_title_my_orders: 'Meine Bestellungen',
-        product: 'Produkt',
-        quantity: 'Menge',
-        price: 'Preis',
         details_and_status_orders: 'Überprüfen Sie die Details und den Status Ihrer Bestellungen im Online-Shop. Sie können Ihre Bestellung auch stornieren oder eine Rücksendung anfordern.',
         you_currently_have_no_orders: 'Sie haben derzeit keine Bestellungen',
         start_shopping: 'Beginn mit dem Einkauf',
-        view_details: 'Einzelheiten anzeigen'
+        view_details: 'Einzelheiten anzeigen',
+        total_orders_label: 'Bestellungen insgesamt - {totalOrders}',
+        table_headers: [
+          { key: 'order_id', value: 'Auftragsnummer' },
+          { key: 'payment_date', value: 'Zahlungsdatum' },
+          { key: 'amount', value: 'Menge' },
+          { key: 'status', value: 'Status' }
+        ]
+      },
+      order_details: {
+        tab_title: 'Bestelldetails - {orderId}',
+        table_header_order_id: 'Auftragsnummer',
+        table_header_payment_date: 'Zahlungsdatum',
+        table_header_status: 'Status',
+        table_header_total: 'Gesamt',
+        button_show_all_orders_label: 'Alle Bestellungen anzeigen',
+        products_table_headers: [
+          { key: 'products_name', value: 'Name' },
+          { key: 'products_quantity', value: 'Menge' },
+          { key: 'products_price', value: 'Preis' }
+        ]
       },
       saved_addresses_details: {
         tab_title_saved_addresses: 'Gespeicherte Adressen',
@@ -185,6 +201,14 @@ export default {
         new_password_label: 'Neues Kennwort',
         confirm_password_label: 'Bestätige neues Passwort'
       },
+      profile_update_form: {
+        table_data_email: 'Email',
+        table_data_store_credits: 'Guthaben speichern',
+        table_data_shipping_to: 'Versand an {firstName} {lastName}',
+        table_data_shipping: 'Versand',
+        button_manage_saved_addresses_label: 'Gespeicherte Adressen verwalten',
+        button_show_recent_orders_label: 'Letzte Bestellungen anzeigen'
+      },
       saved_address_form: {
         first_name_label: '@:shared.form.first_name',
         last_name_label: '@:shared.form.last_name',
@@ -203,45 +227,23 @@ export default {
     app_footer: {
       about_us: {
         title: 'Über uns',
-        items: [
-          'Wer wir sind',
-          'Qualität im Detail',
-          'Kundenbewertungen'
-        ]
+        items: ['Wer wir sind', 'Qualität im Detail', 'Kundenbewertungen']
       },
       departments: {
         title: 'Abteilungen',
-        items: [
-          'Damenmode',
-          'Herrenmode',
-          'Kinderkleidung',
-          'Heim'
-        ]
+        items: ['Damenmode', 'Herrenmode', 'Kinderkleidung', 'Heim']
       },
       help: {
         title: 'Hilfe',
-        items: [
-          'Kundendienst',
-          'Größentabelle',
-          'Kontaktiere uns'
-        ]
+        items: ['Kundendienst', 'Größentabelle', 'Kontaktiere uns']
       },
       payment_and_delivery: {
         title: 'Zahlung & Lieferung',
-        items: [
-          'Einkaufsbedingungen',
-          'Garantie'
-        ]
+        items: ['Einkaufsbedingungen', 'Garantie']
       },
       social: {
         title: 'Sozial',
-        items: [
-          'Facebook',
-          'Pinterest',
-          'Google',
-          'zwitschern',
-          'Youtube'
-        ]
+        items: ['Facebook', 'Pinterest', 'Google', 'zwitschern', 'Youtube']
       }
     },
     app_header: {

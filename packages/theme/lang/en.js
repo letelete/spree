@@ -108,7 +108,27 @@ export default {
         details_and_status_orders: 'Check the details and status of your orders in the online store. You can also cancel your order or request a return.',
         you_currently_have_no_orders: 'You currently have no orders',
         start_shopping: 'Start shopping',
-        view_details: 'View details'
+        view_details: 'View details',
+        total_orders_label: 'Total orders - {totalOrders}',
+        table_headers: [
+          { key: 'order_id', value: 'Order ID' },
+          { key: 'payment_date', value: 'Payment date' },
+          { key: 'amount', value: 'Amount' },
+          { key: 'status', value: 'Status' }
+        ]
+      },
+      order_details: {
+        tab_title: 'Order details - {orderId}',
+        table_header_order_id: 'Order id',
+        table_header_payment_date: 'Payment date',
+        table_header_status: 'Status',
+        table_header_total: 'Total',
+        button_show_all_orders_label: 'Show all orders',
+        products_table_headers: [
+          { key: 'products_name', value: 'Name' },
+          { key: 'products_quantity', value: 'Quantity' },
+          { key: 'products_price', value: 'Price' }
+        ]
       },
       saved_addresses_details: {
         tab_title_saved_addresses: 'Saved addresses',
@@ -178,6 +198,14 @@ export default {
       password_reset_form: {
         new_password_label: 'New Password',
         confirm_password_label: 'Confirm New Password'
+      },
+      profile_update_form: {
+        table_data_email: 'Email',
+        table_data_store_credits: 'Store Credits',
+        table_data_shipping_to: 'Shipping to {firstName} {lastName}',
+        table_data_shipping: 'Shipping',
+        button_manage_saved_addresses_label: 'Manage saved addresses',
+        button_show_recent_orders_label: 'Show recent orders'
       },
       saved_address_form: {
         first_name_label: '@:shared.form.first_name',
