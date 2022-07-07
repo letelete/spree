@@ -35,7 +35,7 @@
             v-if="options.size"
             :value="configuration.size"
             @input="size => updateFilter({ size })"
-            label="Size"
+            :label="$t('pages.product.size_select_label')"
             class="sf-select--underlined product__select-size"
             :required="true"
           >
@@ -48,10 +48,10 @@
             </SfSelectOption>
           </SfSelect>
           <SfButton v-if="options.size" class="sf-button--text desktop-only product__guide">
-            {{ $t('Size guide') }}
+            {{ $t('pages.product.button_size_guide_label') }}
           </SfButton>
           <div v-if="options.color && options.color.length > 1" class="product__colors desktop-only">
-            <p class="product__color-label">{{ $t('Color') }}:</p>
+            <p class="product__color-label">{{ $t('pages.product.color_label') }}:</p>
             <SfColor
               v-for="(color, i) in options.color"
               :key="i"
@@ -72,11 +72,11 @@
 
         <LazyHydrate when-idle>
           <SfTabs :open-tab="1" class="product__tabs">
-            <SfTab title="Description" style="padding: 0; margin: 0">
+            <SfTab :title="$t('pages.product.tab_title_description')" style="padding: 0; margin: 0">
               <div v-html="productGetters.getDescription(product)" class="product__description" ></div>
             </SfTab>
             <SfTab
-              title="Properties"
+              :title="$t('pages.product.tab_title_properties')"
               class="product__tab"
             >
               <SfProperty
@@ -102,7 +102,7 @@
       <RelatedProducts
         :products="relatedProducts"
         :loading="relatedLoading"
-        title="Match it with"
+        :title="$t('pages.product.related_products_title')"
       />
     </LazyHydrate>
 
@@ -134,7 +134,7 @@ import {
 
 import InstagramFeed from '~/components/InstagramFeed.vue';
 import RelatedProducts from '~/components/RelatedProducts.vue';
-import { ref, computed, useRoute, useRouter } from '@nuxtjs/composition-api';
+import { ref, computed, useRoute, useRouter, useContext } from '@nuxtjs/composition-api';
 import { useProduct, useCart, productGetters } from '@vue-storefront/spree';
 import { onSSR } from '@vue-storefront/core';
 import LazyHydrate from 'vue-lazy-hydration';
@@ -151,6 +151,7 @@ export default {
     const qty = ref(1);
     const route = useRoute();
     const router = useRouter();
+    const context = useContext();
     const { products, search } = useProduct('products');
     const { products: relatedProducts, search: searchRelatedProducts, loading: relatedLoading } = useProduct('relatedProducts');
     const { addItem, loading } = useCart();
@@ -162,7 +163,7 @@ export default {
     const configuration = computed(() => productGetters.getAttributes(product.value, optionTypes.value));
     const categories = computed(() => productGetters.getCategoryIds(product.value));
     const properties = computed(() => productGetters.getProperties(product.value));
-    const breadcrumbs = computed(() => productGetters.getBreadcrumbs(product.value));
+    const breadcrumbs = computed(() => productGetters.getBreadcrumbs(product.value).map(e => ({...e, link: context.localePath(e.link)})));
     const isInStock = computed(() => productGetters.getInStock(product.value));
     const productGallery = computed(() => productGetters.getGallery(product.value));
 
@@ -221,13 +222,7 @@ export default {
     LazyHydrate
   },
   data() {
-    return {
-      description: 'Find stunning women cocktail and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.',
-      detailsIsActive: false,
-      brand:
-          'Brand name is the perfect pairing of quality and design. This label creates major everyday vibes with its collection of modern brooches, silver and gold jewellery, or clips it back with hair accessories in geo styles.',
-      careInstructions: 'Do not wash!'
-    };
+    return { detailsIsActive: false };
   }
 };
 </script>
